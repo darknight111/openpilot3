@@ -64,11 +64,13 @@ class Controls:
       can_timeout = None if os.environ.get('NO_CAN_TIMEOUT', False) else 100
       self.can_sock = messaging.sub_sock('can', timeout=can_timeout)
 
-    # wait for one health and one CAN packet
+    # wait for one pandaState and one CAN packet
+    panda_type = messaging.recv_one(self.sm.sock['pandaState']).pandaState.pandaType
+    has_relay = panda_type in [PandaType.blackPanda, PandaType.uno, PandaType.dos]
     print("Waiting for CAN messages...")
     get_one_can(self.can_sock)
 
-    self.CI, self.CP = get_car(self.can_sock, self.pm.sock['sendcan'])
+    self.CI, self.CP = get_car(self.can_sock, self.pm.sock['sendcan'], has_relay)
 
     # read params
     params = Params()
