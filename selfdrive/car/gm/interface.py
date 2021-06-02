@@ -66,7 +66,7 @@ class CarInterface(CarInterfaceBase):
       ret.mass = 1616. + STD_CARGO_KG
       ret.safetyModel = car.CarParams.SafetyModel.gm
       ret.wheelbase = 2.60096
-      ret.steerRatio = 17.6
+      ret.steerRatio = 17.45
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828 
       #PID tunning not to prevent oversteer
