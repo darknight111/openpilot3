@@ -74,7 +74,7 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.1, 0.12], [0.00624, 0.01248]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.7]  #corolla from shane fork : 0.725
-      ret.lateralTuning.pid.kf = 0.00004 # full torque for 20 deg at 80mph means 0.00007818594
+      ret.lateralTuning.pid.kf = 0.00006
       tire_stiffness_factor = 0.5
 
     elif candidate == CAR.MALIBU:
