@@ -43,7 +43,7 @@ class CarInterface(CarInterfaceBase):
     ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2], [0.00]]
     ret.lateralTuning.pid.kf = 0.00004   # full torque for 20 deg at 80mph means 0.00007818594
     ret.steerRateCost = 0.5
-    ret.steerActuatorDelay = 0.15
+    ret.steerActuatorDelay = 0.2
 
     ret.enableGasInterceptor = 0x201 in fingerprint[0]
     #TODO: this should be case based
@@ -73,7 +73,7 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[10., 41.0], [10., 41.0]]
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.18, 0.263], [0.01, 0.02]]
       ret.lateralTuning.pid.kdBP = [0.]
-      ret.lateralTuning.pid.kdV = [0.3]  #corolla from shane fork : 0.725
+      ret.lateralTuning.pid.kdV = [0.73]  #corolla from shane fork : 0.725
       ret.lateralTuning.pid.kf = 0.0000525
       tire_stiffness_factor = 0.5
 
