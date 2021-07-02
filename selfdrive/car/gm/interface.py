@@ -70,8 +70,8 @@ class CarInterface(CarInterfaceBase):
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828 
       #PID tunning not to prevent oversteer
-      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[8.0, 41.0], [8.0, 41.0]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.124, 0.252], [0.08, 0.0247]]
+      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[10., 41.0], [10., 41.0]]
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.155, 0.251], [0.0102, 0.0244]]
       ret.lateralTuning.pid.kdBP = [10., 41.0]
       ret.lateralTuning.pid.kdV = [0.7, 0.8]  #corolla from shane fork : 0.725
       ret.lateralTuning.pid.kf = 0.00006
