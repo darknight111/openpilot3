@@ -43,7 +43,7 @@ class CarInterface(CarInterfaceBase):
     ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2], [0.00]]
     ret.lateralTuning.pid.kf = 0.00004   # full torque for 20 deg at 80mph means 0.00007818594
     ret.steerRateCost = 0.5
-    ret.steerActuatorDelay = 0.22
+    ret.steerActuatorDelay = 0.34
 
     ret.enableGasInterceptor = 0x201 in fingerprint[0]
     #TODO: this should be case based
@@ -68,14 +68,15 @@ class CarInterface(CarInterfaceBase):
       ret.wheelbase = 2.60096
       ret.steerRatio = 16.8
       ret.steerRatioRear = 0.
-      ret.centerToFront = 2.0828 
-      #PID tunning not to prevent oversteer
-      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[10., 41.0], [10., 41.0]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.153, 0.236], [0.0102, 0.0261]]
-      ret.lateralTuning.pid.kdBP = [10., 41.0]
-      ret.lateralTuning.pid.kdV = [0.7, 0.8]  #corolla from shane fork : 0.725
-      ret.lateralTuning.pid.kf = 0.00006
+      ret.centerToFront = 2.0828
       tire_stiffness_factor = 0.5
+      #PID tunning 
+      ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[10., 30.], [10., 30.]]
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.12, 0.15], [0.009, 0.012]]
+      ret.lateralTuning.pid.kdBP = [0.]
+      ret.lateralTuning.pid.kdV = [0.9]  #corolla from shane fork : 0.725
+      ret.lateralTuning.pid.kf = 0.000082
+      
 
     elif candidate == CAR.MALIBU:
       # supports stop and go, but initial engage must be above 18mph (which include conservatism)
