@@ -42,7 +42,7 @@ class CarInterface(CarInterfaceBase):
     ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[0.], [0.]]
     ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2], [0.00]]
     ret.lateralTuning.pid.kf = 0.00004   # full torque for 20 deg at 80mph means 0.00007818594
-    ret.steerRateCost = 0.3
+    ret.steerRateCost = 0.45
     ret.steerActuatorDelay = 0.34
 
     ret.enableGasInterceptor = 0x201 in fingerprint[0]
@@ -62,7 +62,7 @@ class CarInterface(CarInterfaceBase):
     elif candidate == CAR.BOLT:
       # initial engage unkown - copied from Volt. Stop and go unknown.
       ret.minEnableSpeed = -1
-      ret.minSteerSpeed = 5 * CV.MPH_TO_MS
+      ret.minSteerSpeed = 4 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.safetyModel = car.CarParams.SafetyModel.gm
       ret.wheelbase = 2.60096
@@ -72,10 +72,10 @@ class CarInterface(CarInterfaceBase):
       tire_stiffness_factor = 0.5
       #PID tunning 
       ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[10., 30.], [10., 30.]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.153, 0.253], [0.0102, 0.0105]]
-      ret.lateralTuning.pid.kdBP = [10., 30.]
-      ret.lateralTuning.pid.kdV = [0.8, 1.10]  #corolla from shane fork : 0.725
-      ret.lateralTuning.pid.kf = 0.000075
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.12, 0.253], [0.009, 0.0105]]
+      ret.lateralTuning.pid.kdBP = [0.]
+      ret.lateralTuning.pid.kdV = [0.725]  #corolla from shane fork : 0.725
+      ret.lateralTuning.pid.kf = 0.00008
       
 
     elif candidate == CAR.MALIBU:
