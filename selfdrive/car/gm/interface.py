@@ -72,9 +72,9 @@ class CarInterface(CarInterfaceBase):
       tire_stiffness_factor = 0.5
       #PID tunning 
       ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[10., 30.], [10., 30.]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.153, 0.253], [0.0102, 0.012]]
-      ret.lateralTuning.pid.kdBP = [10., 30.]
-      ret.lateralTuning.pid.kdV = [0.6, 0.8]  #corolla from shane fork : 0.725
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.15, 0.253], [0.0102, 0.0122]]
+      ret.lateralTuning.pid.kdBP = [0.]
+      ret.lateralTuning.pid.kdV = [0.75]  #corolla from shane fork : 0.725
       ret.lateralTuning.pid.kf = 0.00008
       
 
