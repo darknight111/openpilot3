@@ -70,10 +70,10 @@ class CarInterface(CarInterfaceBase):
       ret.centerToFront = 2.0828 
       tire_stiffness_factor = 1.0
       ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[10., 41.0], [10., 41.0]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.175, 0.245], [0.01, 0.0214]]
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.18, 0.24], [0.01, 0.02]]
       ret.lateralTuning.pid.kdBP = [0.]
-      ret.lateralTuning.pid.kdV = [0.4]  #corolla from shane fork : 0.725
-      ret.lateralTuning.pid.kf = 0.000085
+      ret.lateralTuning.pid.kdV = [0.3]  #corolla from shane fork : 0.725
+      ret.lateralTuning.pid.kf = 0.00009
 
     elif candidate == CAR.MALIBU:
       # supports stop and go, but initial engage must be above 18mph (which include conservatism)
