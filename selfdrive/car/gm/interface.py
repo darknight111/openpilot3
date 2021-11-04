@@ -34,12 +34,9 @@ class CarInterface(CarInterfaceBase):
     ret.enableGasInterceptor = 0x201 in fingerprint[0]
     ret.openpilotLongitudinalControl = ret.enableGasInterceptor
 
-    tire_stiffness_factor = 0.5
+    tire_stiffness_factor = 1.0
 
     ret.minSteerSpeed = 10 * CV.KPH_TO_MS
-    ret.steerRateCost = 0.3625 # def : 2.0
-    ret.steerActuatorDelay = 0.1925  # def: 0.2 Default delay, not measured yet
-
     ret.minEnableSpeed = -1
     ret.mass = 1625. + STD_CARGO_KG
     ret.wheelbase = 2.60096
@@ -47,15 +44,11 @@ class CarInterface(CarInterfaceBase):
     ret.steerRatioRear = 0.
     ret.centerToFront = ret.wheelbase * 0.49 # wild guess
     
-    ret.lateralTuning.init('indi')
-    ret.lateralTuning.indi.innerLoopGainBP = [10., 30.]
-    ret.lateralTuning.indi.innerLoopGainV = [5.5, 8.0]
-    ret.lateralTuning.indi.outerLoopGainBP = [10., 30.]
-    ret.lateralTuning.indi.outerLoopGainV = [4.5, 7.0]
-    ret.lateralTuning.indi.timeConstantBP = [10., 30.]
-    ret.lateralTuning.indi.timeConstantV = [1.8, 3.5]
-    ret.lateralTuning.indi.actuatorEffectivenessBP = [0.]
-    ret.lateralTuning.indi.actuatorEffectivenessV = [2.0]
+    ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[0.], [0.]]
+    ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2], [0.00]]
+    ret.lateralTuning.pid.kf = 0.00010   # full torque for 20 deg at 80mph means 0.00007818594
+    ret.steerRateCost = 1.0
+    ret.steerActuatorDelay = 0.1  # Default delay, not measured yet
 
 
 
