@@ -44,8 +44,8 @@ class CarInterface(CarInterfaceBase):
     ret.steerRatioRear = 0.
     ret.centerToFront = ret.wheelbase * 0.49 # wild guess
     
-    ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[17., 40.], [0.]]
-    ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2, 0.231], [0.]]
+    ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[18., 38.], [0.]]
+    ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2, 0.22], [0.]]
     ret.lateralTuning.pid.kf = 0.00012   # full torque for 20 deg at 80mph means 0.00007818594
     ret.steerRateCost = 0.5
     ret.steerActuatorDelay = 0.1  # Default delay, not measured yet
