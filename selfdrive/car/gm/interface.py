@@ -73,8 +73,8 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[10., 41.0], [10., 41.0]]
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.18, 0.26], [0.01, 0.02]]
       ret.lateralTuning.pid.kdBP = [0.]
-      ret.lateralTuning.pid.kdV = [0.3]  #corolla from shane fork : 0.725
-      ret.lateralTuning.pid.kf = 0.000045
+      ret.lateralTuning.pid.kdV = [0.319]  #corolla from shane fork : 0.725
+      ret.lateralTuning.pid.kf = 0.0001
       tire_stiffness_factor = 0.5
 
     elif candidate == CAR.MALIBU:
