@@ -35,7 +35,7 @@ class CarInterface(CarInterfaceBase):
     v_current_kph = current_speed * CV.MS_TO_KPH
     # return params.ACCEL_MIN, params.ACCEL_MAX
     accel_max_bp = [10., 20., 50.]
-    accel_max_v = [0.7, 1.0, 0.95]
+    accel_max_v = [1.6, 1.85, 1.95]
 
     return params.ACCEL_MIN, interp(v_current_kph, accel_max_bp, accel_max_v)
 
@@ -111,14 +111,18 @@ class CarInterface(CarInterfaceBase):
     lateral_control = Params().get("LateralControl", encoding='utf-8')
     if lateral_control == 'INDI':
       ret.lateralTuning.init('indi')
-      ret.lateralTuning.indi.innerLoopGainBP = [0.]
-      ret.lateralTuning.indi.innerLoopGainV = [3.3]
-      ret.lateralTuning.indi.outerLoopGainBP = [0.]
-      ret.lateralTuning.indi.outerLoopGainV = [2.8]
-      ret.lateralTuning.indi.timeConstantBP = [0.]
-      ret.lateralTuning.indi.timeConstantV = [1.4]
+      ret.steerActuatorDelay = 0.1
+      ret.steerRateCost = 1.0
+      
+      ret.lateralTuning.indi.innerLoopGainBP = [10., 30.]
+      ret.lateralTuning.indi.innerLoopGainV = [5., 6.5] 
+      ret.lateralTuning.indi.outerLoopGainBP = [10., 30.]
+      ret.lateralTuning.indi.outerLoopGainV = [4.1, 6.9]
+      ret.lateralTuning.indi.timeConstantBP = [10., 30.]
+      ret.lateralTuning.indi.timeConstantV = [1.8, 3.7]
       ret.lateralTuning.indi.actuatorEffectivenessBP = [0.]
-      ret.lateralTuning.indi.actuatorEffectivenessV = [1.8]
+      ret.lateralTuning.indi.actuatorEffectivenessV = [2.]
+
     elif lateral_control == 'LQR':
       ret.lateralTuning.init('lqr')
 
