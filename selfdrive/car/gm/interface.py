@@ -182,18 +182,18 @@ class CarInterface(CarInterfaceBase):
                                                                          tire_stiffness_factor=tire_stiffness_factor)
 
     # longitudinal
-    ret.longitudinalTuning.kpBP = [0., 5.*CV.KPH_TO_MS, 130.*CV.KPH_TO_MS]
-    ret.longitudinalTuning.kpV = [1.10, 1.0, 0.6]
-    ret.longitudinalTuning.kiBP = [0., 130. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.145, 0.080]
+    ret.longitudinalTuning.kpBP = [0., 35.]
+    ret.longitudinalTuning.kpV = [0.12, 0.35] 
+    ret.longitudinalTuning.kiBP = [0., 35.] 
+    ret.longitudinalTuning.kiV = [0.22, 0.34]
     
-    ret.longitudinalTuning.deadzoneBP = [0., 30.*CV.KPH_TO_MS]
-    ret.longitudinalTuning.deadzoneV = [0., 0.10]
-    ret.longitudinalActuatorDelayLowerBound = 0.13
+    ret.longitudinalTuning.deadzoneBP = [0.]
+    ret.longitudinalTuning.deadzoneV = [0.]
+    ret.longitudinalActuatorDelayLowerBound = 0.15
     ret.longitudinalActuatorDelayUpperBound = 0.15
-    
-    ret.stopAccel = -2.0
-    ret.stoppingDecelRate = 4.0
+   
+    ret.stopAccel = 15.
+    ret.stoppingDecelRate = 4.1 #0.17 in my fork, large change?
     ret.vEgoStopping = 0.5
     ret.vEgoStarting = 0.5
     ret.stoppingControl = True
